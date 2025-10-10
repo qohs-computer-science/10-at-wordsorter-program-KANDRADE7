@@ -17,6 +17,16 @@ public class WordSorter
 			return;
 		}	
 		String word = "";
+
+		//stores all words
+		ArrayList <String> storage = new ArrayList<String>();
+
+		//create hybrid structure - used later for organizing 
+		ArrayList<String>[] words = new (ArrayList<String>)[25];
+		for(int x = 0; x< words.length; x++){
+			words[x] = new ArrayList<String>();
+
+
 		while(in.hasNext())
 		{
 			word = in.next();
@@ -31,21 +41,36 @@ public class WordSorter
 			word = word.replace("?", "");
 			word = word.replace("'", "");
 			word.toLowerCase();
-			System.out.println(word);
+			storage.add(word);
 		}//end while loop
 
-		//create hybrid data structure
+		//my notes:
+		// go one by one. start with searching for letters that start with the letter a 
+		// and add them to the first arrayLisyt
+		//also fix data mismatch with hybrid data structure
 
-		ArrayList<String>[] words = new ArrayList [26];
-		for(int x = 0; x< words.length; x++){
-			words[x] = new ArrayList<String>();
-		}//end loop
-		for(ArrayList<String> temp : words){
-			System.out.println(temp.charAt());
-	
-		}
+		for(int i=0; i<=storage.size(); i++){
+			storage[i].toLowerCase();
+			}//end if
+			
+		}//end for loop 
 
-
+		/*
+		 * for(ArrayList<String> temp : words){
+			for(String val : temp){
+				System.out.println(temp.charAt());
+			}//end inner loop
+		}//end outer loop
+		 */
+		
+		System.out.println("Menu:");
+		System.out.println("\nInput the number of the option of the action you want:");
+		System.out.println("\n1. Print out all words starting with a specific letter");
+		System.out.println("\n2. Print out all words");
+		System.out.println("\n3. Print out total number of unique words");
+		System.out.println("\n4. Search for a word");
+		System.out.println("\n5. Remove a word");
+		System.out.println("\n6. Exit");
 
 
 
