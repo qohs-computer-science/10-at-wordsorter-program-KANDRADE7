@@ -22,7 +22,7 @@ public class WordSorter
 		ArrayList <String> storage = new ArrayList<String>();
 
 		//create hybrid structure - used later for organizing 
-		ArrayList<String>[] words = new (ArrayList<String>)[25];
+		ArrayList [] words = new ArrayList[25];
 		for(int x = 0; x< words.length; x++){
 			words[x] = new ArrayList<String>();
 
