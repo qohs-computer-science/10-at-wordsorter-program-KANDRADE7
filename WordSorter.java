@@ -18,13 +18,14 @@ public class WordSorter
 		}	
 		String word = "";
 
-		//stores all words
+		//stores ALL words
 		ArrayList <String> storage = new ArrayList<String>();
 
-		//create hybrid structure - used later for organizing 
-		ArrayList [] words = new ArrayList[25];
-		for(int x = 0; x< words.length; x++){
-			words[x] = new ArrayList<String>();
+		//create hybrid structure - ArrayList of ArrayLists. 
+		// parent arrayList will hold 26 spots. careful of how many spots created
+		ArrayList<ArrayList<String>> words = new ArrayList<>();
+		for(int x = 0; x< 26; x++){
+			words.add(new ArrayList<String>());
 
 
 		while(in.hasNext())
@@ -48,13 +49,24 @@ public class WordSorter
 		// go one by one. start with searching for letters that start with the letter a 
 		// and add them to the first arrayLisyt
 		//also fix data mismatch with hybrid data structure
-
-		for(int i=0; i<=storage.size(); i++){
-			storage[i].toLowerCase();
-			}//end if
-			
+		String letters = "abcdefghijklmnopqrstuvwxyz";
+		
+		//puts all the lowercase 
+		for(int i=0; i<storage.size(); i++){
+			storage.get(i).toLowerCase();
+			System.out.println(storage.get(i));
 		}//end for loop 
 
+		int position = 0;
+		for(int k=0; k<storage.size(); k++){
+			char current = letters.charAt(k);
+			String currentString = storage.get(k);
+			if(currentString.substring(k,k+1).equals(current)){
+				words.get(position).add(currentString);
+			}//end if
+		}//end for loop
+
+		
 		/*
 		 * for(ArrayList<String> temp : words){
 			for(String val : temp){
