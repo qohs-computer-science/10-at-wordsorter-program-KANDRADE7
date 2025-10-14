@@ -18,19 +18,6 @@ public class WordSorter
 		}	
 		String word = "";
 
-		//maybe 
-		//create hybrid structure - ArrayList of ArrayLists. 
-		// parent arrayList will hold 26 spots (a-z)
-		//use for organizing 
-
-		/*
-		 * ArrayList<ArrayList<String>> words = new ArrayList<>();
-		for(int x = 0; x< 26; x++){
-			words.add(new ArrayList<String>());
-		}//end for loop
-		 */
-		
-
 		//stores ALL words
 		ArrayList<String> storage = new ArrayList<String>();
 
@@ -81,16 +68,24 @@ public class WordSorter
 			}//end if 
 		}//end for loop
 
-		for(String temp : storage){
-			System.out.println(temp);
-		}//for each loop
+		//TESTING
+		
+	
 		
 
-
+		//maybe 
+		//create hybrid structure - ArrayList of ArrayLists. 
+		// parent arrayList will hold 26 spots (a-z)
+		//use for organizing 
+		/*
+		 * ArrayList<ArrayList<String>> words = new ArrayList<>();
+		for(int x = 0; x< 26; x++){
+			words.add(new ArrayList<String>());
+		}//end for loop
+		 */
 		//my notes:
 		// go one by one. start with searching for letters that start with the letter a 
 		// and add them to the first arrayLisyt
-		
 		/*
 		 * String letters = "abcdefghijklmnopqrstuvwxyz";
 		int position = 0;
@@ -101,14 +96,10 @@ public class WordSorter
 				words.get(position).add(currentString);
 			}//end if
 		}//end for loop
-
 		//printing 
-		for(int h=0; h< words.size(); h++){
-			
+		for(int h=0; h< words.size(); h++){	
 		}//end loop
-		
 		 */
-		
 		/*
 		 * for(ArrayList<String> temp : words){
 			for(String val : temp){
@@ -117,27 +108,52 @@ public class WordSorter
 		}//end outer loop
 		 */
 		
+		//prints menu 
 		System.out.println("Menu:");
-		System.out.println("\nInput the number of the option of the action you want:");
-		System.out.println("\n1. Print out all words starting with a specific letter");
-		System.out.println("\n2. Print out all words");
-		System.out.println("\n3. Print out total number of unique words");
-		System.out.println("\n4. Search for a word");
-		System.out.println("\n5. Remove a word");
-		System.out.println("\n6. Exit");
+	
+		System.out.println("1. Print out all words starting with a specific letter");
+		System.out.println("2. Print out all words");
+		System.out.println("3. Print out total number of unique words");
+		System.out.println("4. Search for a word");
+		System.out.println("5. Remove a word");
+		System.out.println("6. Exit");
 
-		//option 1 - print all words starting with a specific letter
+		//create Scanner 
+		Scanner yahoo = new Scanner(System.in);
+		boolean checker = true;
 
-		//option 2 - print all words
+		while(checker){
+			System.out.print("\nInput the number of the option of the action you want: ");
+			int input = yahoo.nextInt(); 
+			if()
 
-		//option 3 - print out total number of unique words
+			//option 1 - print all words starting with a specific letter
 
-		//option 4 - search for a word ...use scanner
+			//option 2 - print all words
+			if(input == 2){
+				for(String temp : storage){
+					System.out.println(temp);
+				}//for each loop
+			}//end if 
 
-		//option 5 - remove a word 
+			//option 3 - print out total number of unique words
+			if(input == 3){
+				System.out.println(storage.size());
+			}//end if
 
-		//option 6 - exit 
-		System.out.println("\nBye! :-)")
+			//option 4 - search for a word ...use scanner
+
+			//option 5 - remove a word 
+
+			//option 6 - exit 
+			if(input ==6){
+				checker = false; 
+				System.out.println("\nBye! :-)");
+			}//end if 
+
+		}//end while loop
+
+		
 
 	}//end main
 }//end class
