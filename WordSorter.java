@@ -67,47 +67,7 @@ public class WordSorter
 				a--;
 			}//end if 
 		}//end for loop
-
-		//TESTING
-		
 	
-		
-
-		//maybe 
-		//create hybrid structure - ArrayList of ArrayLists. 
-		// parent arrayList will hold 26 spots (a-z)
-		//use for organizing 
-		/*
-		 * ArrayList<ArrayList<String>> words = new ArrayList<>();
-		for(int x = 0; x< 26; x++){
-			words.add(new ArrayList<String>());
-		}//end for loop
-		 */
-		//my notes:
-		// go one by one. start with searching for letters that start with the letter a 
-		// and add them to the first arrayLisyt
-		/*
-		 * String letters = "abcdefghijklmnopqrstuvwxyz";
-		int position = 0;
-		for(int k=0; k<storage.size(); k++){
-			char current = letters.charAt(k);
-			String currentString = storage.get(k);
-			if(currentString.substring(k,k+1).equals(current)){
-				words.get(position).add(currentString);
-			}//end if
-		}//end for loop
-		//printing 
-		for(int h=0; h< words.size(); h++){	
-		}//end loop
-		 */
-		/*
-		 * for(ArrayList<String> temp : words){
-			for(String val : temp){
-				System.out.println(temp.charAt());
-			}//end inner loop
-		}//end outer loop
-		 */
-		
 		//prints menu 
 		System.out.println("Menu:");
 	
@@ -121,15 +81,16 @@ public class WordSorter
 		//create Scanner 
 		Scanner yahoo = new Scanner(System.in);
 		boolean checker = true;
-		System.out.print("\nInput the number of the option of the action you want: ");
-		int input = yahoo.nextInt(); 
+		
 		while(checker){
-			
+			System.out.print("\nInput the number of the option of the action you want: ");
+			int input = yahoo.nextInt(); 
+			yahoo.nextLine();
 			if(input > 6){
 				System.out.print("\nOops! You put a number for an option that doesn't exist!");
 				System.out.print("\nInput a valid number of the option of the action you want: ");
-			}//end if
-
+			}// end if 
+				
 			//option 1 - print all words starting with a specific letter
 			if(input ==1){
 				System.out.print("Input a letter: ");
@@ -142,7 +103,6 @@ public class WordSorter
 				}//for loop
 			}//end if
 			
-
 			//option 2 - print all words
 			if(input == 2){
 				for(String temp : storage){
@@ -156,18 +116,40 @@ public class WordSorter
 			}//end if
 
 			//option 4 - search for a word ...use scanner
-
+			if(input == 4){
+				System.out.print("Input a word: ");
+				String favWord = yahoo.nextLine();
+				favWord = favWord.toLowerCase(); 
+				boolean found = false;
+				for(String temp : storage){
+					if(temp.equals(favWord))
+						found = true;
+				}//end for each loop
+				if(found)
+					System.out.println("Word found in article!");
+				else
+					System.out.println("Word NOT found in article.");
+			}//end if - end option 4
+			
 			//option 5 - remove a word 
+			if(input==5){
+				System.out.print("Input a word to be removed: ");
+				String removeWord = yahoo.nextLine(); 
+				for(int place=0; place< storage.size(); place++){
+					if(storage.get(place).equals(removeWord)){
+						storage.remove(x);
+						System.out.print(“Word successfully removed from the list”);
+					else
+						System.out.print("Word NOT found in article"); 
+					}//end if
+				}//end for loop
+			}//end if 
 
 			//option 6 - exit 
 			if(input ==6){
 				checker = false; 
 				System.out.println("\nBye! :-)");
 			}//end if 
-
-		}//end while loop
-
-		
-
+		}//end while loop		
 	}//end main
 }//end class
