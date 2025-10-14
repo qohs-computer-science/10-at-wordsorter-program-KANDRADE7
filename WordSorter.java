@@ -48,34 +48,51 @@ public class WordSorter
 			word = word.replace("!", "");
 			word = word.replace("?", "");
 			word = word.replace("'", "");
-			word.toLowerCase();
 			storage.add(word);
 		}//end while loop
 
-		// all the lowercase 
+		// turn all letters into lowercase 
 		for(int i=0; i<storage.size(); i++){
 			storage.set(i, storage.get(i).toLowerCase());
-			System.out.println(storage.get(i));
 		}//end for loop 
 
+		//sort alphabetically - selection sort
+		for(int s=0; s< storage.size()-1; s++){
+			int minIndex = s;
+			for(int k= s+1; k< storage.size(); k++){
+				if(storage.get(k).compareTo(storage.get(minIndex)) < 0){
+					minIndex=k; 
+				}//end if 
+			}//end inner loop
+			if(minIndex !=s){
+				String temp = storage.get(s);
+				storage.set(s, storage.get(minIndex));
+				storage.set(minIndex, temp); 
+			}//end if
+		}//end outer loop/sort 
+
 		//removing duplicates 
-		for(int a=0; a< storage.size(); a++){
+		for(int a=0; a< storage.size()-1; a++){
 			String currentWord = storage.get(a);
 			String nextWord = storage.get(a+1);
-			if(currentWord.compareTo(nextWord)){
-
+			if(currentWord.compareTo(nextWord)==0){
+				storage.remove(a+1);
+				a--;
 			}//end if 
 		}//end for loop
 
+		for(String temp : storage){
+			System.out.println(temp);
+		}//for each loop
+		
 
 
 		//my notes:
 		// go one by one. start with searching for letters that start with the letter a 
 		// and add them to the first arrayLisyt
 		
-		
-
-		String letters = "abcdefghijklmnopqrstuvwxyz";
+		/*
+		 * String letters = "abcdefghijklmnopqrstuvwxyz";
 		int position = 0;
 		for(int k=0; k<storage.size(); k++){
 			char current = letters.charAt(k);
@@ -89,6 +106,8 @@ public class WordSorter
 		for(int h=0; h< words.size(); h++){
 			
 		}//end loop
+		
+		 */
 		
 		/*
 		 * for(ArrayList<String> temp : words){
@@ -107,7 +126,18 @@ public class WordSorter
 		System.out.println("\n5. Remove a word");
 		System.out.println("\n6. Exit");
 
+		//option 1 - print all words starting with a specific letter
 
+		//option 2 - print all words
+
+		//option 3 - print out total number of unique words
+
+		//option 4 - search for a word ...use scanner
+
+		//option 5 - remove a word 
+
+		//option 6 - exit 
+		System.out.println("\nBye! :-)")
 
 	}//end main
 }//end class
