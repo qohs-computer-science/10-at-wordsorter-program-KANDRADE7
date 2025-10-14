@@ -18,16 +18,23 @@ public class WordSorter
 		}	
 		String word = "";
 
-		//stores ALL words
-		ArrayList <String> storage = new ArrayList<String>();
-
+		//maybe 
 		//create hybrid structure - ArrayList of ArrayLists. 
-		// parent arrayList will hold 26 spots. careful of how many spots created
-		ArrayList<ArrayList<String>> words = new ArrayList<>();
+		// parent arrayList will hold 26 spots (a-z)
+		//use for organizing 
+
+		/*
+		 * ArrayList<ArrayList<String>> words = new ArrayList<>();
 		for(int x = 0; x< 26; x++){
 			words.add(new ArrayList<String>());
+		}//end for loop
+		 */
+		
 
+		//stores ALL words
+		ArrayList<String> storage = new ArrayList<String>();
 
+		//cleaning data
 		while(in.hasNext())
 		{
 			word = in.next();
@@ -45,18 +52,30 @@ public class WordSorter
 			storage.add(word);
 		}//end while loop
 
-		//my notes:
-		// go one by one. start with searching for letters that start with the letter a 
-		// and add them to the first arrayLisyt
-		//also fix data mismatch with hybrid data structure
-		String letters = "abcdefghijklmnopqrstuvwxyz";
-		
-		//puts all the lowercase 
+		// all the lowercase 
 		for(int i=0; i<storage.size(); i++){
-			storage.get(i).toLowerCase();
+			storage.set(i, storage.get(i).toLowerCase());
 			System.out.println(storage.get(i));
 		}//end for loop 
 
+		//removing duplicates 
+		for(int a=0; a< storage.size(); a++){
+			String currentWord = storage.get(a);
+			String nextWord = storage.get(a+1);
+			if(currentWord.compareTo(nextWord)){
+
+			}//end if 
+		}//end for loop
+
+
+
+		//my notes:
+		// go one by one. start with searching for letters that start with the letter a 
+		// and add them to the first arrayLisyt
+		
+		
+
+		String letters = "abcdefghijklmnopqrstuvwxyz";
 		int position = 0;
 		for(int k=0; k<storage.size(); k++){
 			char current = letters.charAt(k);
@@ -66,6 +85,10 @@ public class WordSorter
 			}//end if
 		}//end for loop
 
+		//printing 
+		for(int h=0; h< words.size(); h++){
+			
+		}//end loop
 		
 		/*
 		 * for(ArrayList<String> temp : words){
