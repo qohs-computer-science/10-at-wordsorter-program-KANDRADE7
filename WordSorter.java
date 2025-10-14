@@ -83,12 +83,12 @@ public class WordSorter
 		boolean checker = true;
 		
 		while(checker){
-			System.out.print("\nInput the number of the option of the action you want: ");
+			System.out.println();
+			System.out.print("Input the number of the option of the action you want: ");
 			int input = yahoo.nextInt(); 
 			yahoo.nextLine();
 			if(input > 6){
 				System.out.print("\nOops! You put a number for an option that doesn't exist!");
-				System.out.print("\nInput a valid number of the option of the action you want: ");
 			}// end if 
 				
 			//option 1 - print all words starting with a specific letter
@@ -135,14 +135,18 @@ public class WordSorter
 			if(input==5){
 				System.out.print("Input a word to be removed: ");
 				String removeWord = yahoo.nextLine(); 
-				for(int place=0; place< storage.size(); place++){
+				boolean removed = false; 
+				for(int place=0; place < storage.size(); place++){
 					if(storage.get(place).equals(removeWord)){
-						storage.remove(x);
-						System.out.print(“Word successfully removed from the list”);
-					else
-						System.out.print("Word NOT found in article"); 
-					}//end if
+						storage.remove(place);
+						place--;
+						removed = true; 
+					}//end if 		
 				}//end for loop
+				if(removed)
+					System.out.println("Word successfully removed from the list");
+				else
+					System.out.println("Word NOT found in article"); 
 			}//end if 
 
 			//option 6 - exit 
