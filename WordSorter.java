@@ -121,13 +121,27 @@ public class WordSorter
 		//create Scanner 
 		Scanner yahoo = new Scanner(System.in);
 		boolean checker = true;
-
+		System.out.print("\nInput the number of the option of the action you want: ");
+		int input = yahoo.nextInt(); 
 		while(checker){
-			System.out.print("\nInput the number of the option of the action you want: ");
-			int input = yahoo.nextInt(); 
-			if()
+			
+			if(input > 6){
+				System.out.print("\nOops! You put a number for an option that doesn't exist!");
+				System.out.print("\nInput a valid number of the option of the action you want: ");
+			}//end if
 
 			//option 1 - print all words starting with a specific letter
+			if(input ==1){
+				System.out.print("Input a letter: ");
+				String favLetter = yahoo.nextLine();
+				for(int i=0; i<storage.size(); i++){
+					String wordfirstLetter = storage.get(i).substring(0,1);
+					if(wordfirstLetter.equals(favLetter)){
+						System.out.println(storage.get(i));
+					}//end if 
+				}//for loop
+			}//end if
+			
 
 			//option 2 - print all words
 			if(input == 2){
