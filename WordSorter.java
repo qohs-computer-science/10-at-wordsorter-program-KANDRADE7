@@ -67,7 +67,7 @@ public class WordSorter
 				a--;
 			}//end if 
 		}//end for loop
-	
+	 
 		//prints menu 
 		System.out.println("Menu:");
 	
